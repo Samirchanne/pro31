@@ -1,7 +1,8 @@
 var balloon,balloonImage1,balloonImage2;
 // create database and position variable here
-var balloonPosition=database.ref("balloon/height");
-balloonPosition.on("value",readPosition, showError);
+var database;
+var height;
+
 
 
 function preload(){
@@ -19,6 +20,8 @@ function setup() {
   balloon=createSprite(250,450,150,150);
   balloon.addAnimation("hotAirBalloon",balloonImage1);
   balloon.scale=0.5;
+  var balloonPosition = database.ref("balloon/height");
+  balloonPosition.on("value" ,readPosition, showError);
 
   textSize(20); 
 }
